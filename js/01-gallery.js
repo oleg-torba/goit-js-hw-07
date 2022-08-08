@@ -1,10 +1,8 @@
 import { galleryItems } from "./gallery-items.js";
 
-
-
 const galleryBox = document.querySelector(".gallery");
 const galleryList = createGalleryLightBox(galleryItems);
-galleryBox.insertAdjacentHTML("beforeend", galleryList)
+galleryBox.insertAdjacentHTML("beforeend", galleryList);
 
 function createGalleryLightBox(galleryItems) {
   return galleryItems
@@ -24,15 +22,14 @@ function createGalleryLightBox(galleryItems) {
     .join("");
 }
 galleryBox.addEventListener("click", onGalleryLightBoxClick);
-function onGalleryLightBoxClick(e){
-    e.preventDefault();
-    const imgSource = e.target.dataset.source;
-    const instance = basicLightbox.create(`
+function onGalleryLightBoxClick(e) {
+  e.preventDefault();
+  const imgSource = e.target.dataset.source;
+  const instance = basicLightbox.create(`
     <img
     src="${imgSource}"
     >
-`)
+`);
 
-instance.show()
+  instance.show();
 }
-

@@ -4,6 +4,8 @@ const galleryBox = document.querySelector(".gallery");
 const galleryList = createGalleryLightBox(galleryItems);
 galleryBox.insertAdjacentHTML("beforeend", galleryList);
 
+
+
 function createGalleryLightBox(galleryItems) {
   return galleryItems
     .map(({ preview, original, description }) => {
@@ -15,20 +17,14 @@ function createGalleryLightBox(galleryItems) {
     .join("");
 }
 
-const GalleryLightBox = new SimpleLightBox(".gallery a", {
-  overlayOpacity: 0.5,
-  captionDelay: 250,
-
+const lightbox = new SimpleLightbox(".gallery a", {
+  captionPosition: "top",
   captionsData: "alt",
-  captionPosition: "bottom",
-
-  animationSpeed: 250,
-
+  captionDelay: 250,
   enableKeyboard: true,
-
-  disableRightClick: true,
-  disableScroll: false,
-  alertError: true,
-  alertErrorMessage: "Image not found, next image will be loaded",
-  additionalHtml: false,
+  close: false,
+  fadeSpeed: 300,
+  overlayOpacity: 0.5,
+    
 });
+
